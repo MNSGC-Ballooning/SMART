@@ -1,7 +1,7 @@
 #include "Smart.h"
 
-Smart::Smart(byte pin, unsigned long cutAlt, unsigned long cutTime):
-  servoPin(pin), cutAlt(cutAlt), cutTime(cutTime) {
+Smart::Smart(byte pin):
+  servoPin(pin) {
 }
 
 void Smart::initialize() {
