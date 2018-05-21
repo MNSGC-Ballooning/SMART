@@ -10,8 +10,5 @@ void Smart::initialize() {
 }
 
 void Smart::release() {
-  for (byte i = servo.read(); i > 0; i--) {
-    servo.write(i);
-    delay(20);
-  }
+  servo.write(0);
 }
