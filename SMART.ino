@@ -2,7 +2,7 @@
 //#include <CopernicusGPS.h>
 
 #define smartPin 10
-#define cutTime 1 //Time in minutes
+#define cutTime 2 //Time in increments of 10 seconds
 
 bool released = false;
 
@@ -20,7 +20,7 @@ void setup() {
 
 void loop() {
   //gps.update();
-  if (!released && (millis()/60000.0 > cutTime)) {
+  if (!released && (millis()/10000.0 > cutTime)) {
     Serial.print("Releasing");
     smart.release();
     released = true;
