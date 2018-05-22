@@ -1,13 +1,13 @@
 #include "src\Smart.h"
-#include <CopernicusGPS.h>
+//#include <CopernicusGPS.h>
 
 #define smartPin 10
-#define cutTime 70 //Time in minutes
+#define cutTime 1 //Time in minutes
 
 bool released = false;
 
-SoftwareSerial ss = SoftwareSerial(2,3);
-CopernicusGPS gps = CopernicusGPS(&ss);
+//SoftwareSerial ss = SoftwareSerial(2,3);
+//CopernicusGPS gps = CopernicusGPS(&ss);
 
 Smart smart = Smart(smartPin);
 
