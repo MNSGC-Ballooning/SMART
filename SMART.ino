@@ -4,6 +4,8 @@
 #define smartPin 10
 #define cutTime 70 //Time in minutes
 #define light 9
+#define onlightn 7
+#define onlightp 6
 
 bool released = false;
 
@@ -16,8 +18,12 @@ void setup() {
   smart.initialize();
   //gps.initialize();
   pinMode(light, OUTPUT);
+  pinMode(onlightn, OUTPUT);
+  pinMode(onlightp, OUTPUT);
   Serial.begin(115200);
   Serial.println("Testing");
+  digitalWrite(onlightn, LOW);
+  digitalWrite(onlightp, HIGH);
 }
 
 void loop() {
