@@ -37,11 +37,16 @@ void xBeeCommand() {
   
   //all commands go in a series of if-else statements; if a command matches a certain string, do a certain thing
   //keep commands short when possible - ~2-4 characters A-Z 0-9 only. At a minimum include ability to request data.
-  if (command.equals("ABC")) {
-    //-----Do something here-----
+  if (command.equals("CUT")) {
+    smart.release();
+    xBee.send("\nSee you on the other side...");
   }
-  else if (command.equals("123")) {
-    //-----Do something else here-----
+  else if (command.equals("-5")) {
+    cutTime = cutTime-5;
+  }
+  else if (command.equals("+5")) {
+    cutTime = cutTime+5;
+  }
   }
   //-----Add more commands as needed-----
    else { //if received command doesn't match any expected strings, inform ground of error

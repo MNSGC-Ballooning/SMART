@@ -2,9 +2,10 @@
 #include <Relay_XBee.h>
 //#include <CopernicusGPS.h>
 
-#define smartPin 10
+#define smartPin 5
 #define radioLED_pin 7
-#define cutTime 70 //Time in minutes
+
+float cutTime = 70;
 
 bool released = false;
 
@@ -12,6 +13,7 @@ bool released = false;
 //CopernicusGPS gps = CopernicusGPS(&ss);
 
 SoftwareSerial xBee_Serial = SoftwareSerial(2,3);
+//#define xBee_Serial Serial
 const String ID = "CMD";
 
 Smart smart = Smart(smartPin);
@@ -32,4 +34,5 @@ void loop() {
     
     released = true;
   }
+  xBeeCommand();
 }
