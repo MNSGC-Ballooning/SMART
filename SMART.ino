@@ -4,13 +4,13 @@
 #define smartPin 5
 #define radioLED_pin 7
 
-float cutTime = 70;
-
+float cutTime = 80;
+float Timer=1;
 bool released = false;
 
 //SoftwareSerial xBee_Serial = SoftwareSerial(2,3);
 #define xBee_Serial Serial
-const String ID = "CMD";
+const String ID = "SMART";
 
 Smart smart = Smart(smartPin);
 
@@ -28,4 +28,12 @@ void loop() {
     released = true;
   }
   xBeeCommand();
+  
+  if (millis()/60000.0>Timer)
+  {Timer=Timer+1;
+  float TRemain = cutTime-millis()/60000.0;
+  String Remain="\nTime remaining is " + String(TRemain) + "minutes.";
+  beacon(Remain);
+  }
+  
 }
