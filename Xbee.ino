@@ -3,7 +3,7 @@ XBee xBee = XBee(&xBee_Serial, ID);
 //setup function for xBee
 void xBeeSetup() {
   pinMode(radioLED_pin, OUTPUT);
-  xBee_Serial.begin(9600);
+  Serial.begin(9600);
   String header = "GPS Time,Type,Message";
 //  logRadio(header);
 }
@@ -40,6 +40,10 @@ void xBeeCommand() {
   if (command.equals("CUT")) {
     smart.release();
     xBee.send("\nSee you on the other side...");
+  }
+   else if (command.equals("TLEFT")) {
+    float TRemain = cutTime-millis()/60000.0;
+    xBee.send("\nTime remaining is "+String(TRemain)+" min");
   }
   else if (command.equals("+1")) {
     cutTime = cutTime+1;
@@ -98,10 +102,6 @@ void xBeeCommand() {
   }
   else if (command.equals("-32")) {
     cutTime = cutTime-32;
-    float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
-  }
-  else if (command.equals("TLEFT")) {
     float TRemain = cutTime-millis()/60000.0;
     xBee.send("\nTime remaining is "+String(TRemain)+" min");
   }
