@@ -32,8 +32,9 @@ void loop() {
   if (millis()/60000.0>Timer)
   {Timer=Timer+1;
   float TRemain = cutTime-millis()/60000.0;
-  String Remain="\nTime remaining is " + String(TRemain) + "minutes.";
+  String Remain="Auto: Time remaining is " + String(TRemain) + "minutes.";
   beacon(Remain);
   }
+  SpamControl();
   
 }
