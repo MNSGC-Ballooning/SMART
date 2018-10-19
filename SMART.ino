@@ -4,9 +4,12 @@
 #define smartPin 5
 #define radioLED_pin 7
 
+//Parameters
 float cutTime = 80;
 float Timer=1;
 bool released = false;
+int smartUnit = 1; //Change the number depending on the external SMART unit being used;
+
 
 //SoftwareSerial xBee_Serial = SoftwareSerial(2,3);
 #define xBee_Serial Serial
