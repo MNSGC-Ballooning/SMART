@@ -12,9 +12,10 @@ void xBeeSetup() {
 
 //function that simply beacons data to ground without logging
 void beacon(String data) {
-  digitalWrite(radioLED_pin, HIGH);
-  xBee.send(data);
-  digitalWrite(radioLED_pin, LOW);
+  if (millis()-prevTime>=60000){
+    prevTime = millis();
+    xBee.send(data);
+  } 
 }
 
 //function that sends an xBee message and records it in the radio log
@@ -45,35 +46,36 @@ void xBeeCommand() {
   if (command.equals("CUT" + String(smartUnit))) {
     xBee.send("Attempting cut...");
     smart.release();
+    released = true;
     xBee.send("\nSee you on the other side...");
     previousCommand=command;
     SpamTimer=millis()/1000.0+15.0;
   }
-   else if (command.equals("TLEFT")) {
-    xBee.send("Sending time...");
-    float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
-    previousCommand=command;
-    SpamTimer=millis()/1000.0+15.0;
-  }
-      else if (command.substring(0,3)=="ADD")
-  {xBee.send("Attempting add...");
-    String TAdd=command.substring(3);
-  cutTime=cutTime+TAdd.toFloat();
-  float TRemain=cutTime-millis()/60000.0;
-   xBee.send("\nTime remaining is "+String(TRemain)+" min");
-   previousCommand=command;
-   SpamTimer=millis()/1000.0+15.0;
-  }
-  else if (command.substring(0,3)=="SUB")
-  {xBee.send("Attempting sub...");
-    String TSub=command.substring(3);
-  cutTime=cutTime-TSub.toFloat();
-  float TRemain=cutTime-millis()/60000.0;
-   xBee.send("\nTime remaining is "+String(TRemain)+" min");
-   previousCommand=command;
-   SpamTimer=millis()/1000.0+15.0;
-  }
+//   else if (command.equals("TLEFT")) {
+//    xBee.send("Sending time...");
+//    float TRemain = cutTime-millis()/60000.0;
+//    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+//    previousCommand=command;
+//    SpamTimer=millis()/1000.0+15.0;
+//  }
+//      else if (command.substring(0,3)=="ADD")
+//  {xBee.send("Attempting add...");
+//    String TAdd=command.substring(3);
+//  cutTime=cutTime+TAdd.toFloat();
+//  float TRemain=cutTime-millis()/60000.0;
+//   xBee.send("\nTime remaining is "+String(TRemain)+" min");
+//   previousCommand=command;
+//   SpamTimer=millis()/1000.0+15.0;
+//  }
+//  else if (command.substring(0,3)=="SUB")
+//  {xBee.send("Attempting sub...");
+//    String TSub=command.substring(3);
+//  cutTime=cutTime-TSub.toFloat();
+//  float TRemain=cutTime-millis()/60000.0;
+//   xBee.send("\nTime remaining is "+String(TRemain)+" min");
+//   previousCommand=command;
+//   SpamTimer=millis()/1000.0+15.0;
+//  }
  /*
   else if (command.equals("+1")) {
     xBee.send("Attempting +1...");
