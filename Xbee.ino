@@ -39,71 +39,71 @@ void xBeeCommand() {
   //keep commands short when possible - ~2-4 characters A-Z 0-9 only. At a minimum include ability to request data.
   if (command.equals("CUT")) {
     smart.release();
-    xBee.send("\nSee you on the other side...");
+    xBee.send("See you on the other side...");
   }
    else if (command.equals("TLEFT")) {
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("+1")) {
     cutTime = cutTime+1;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("-1")) {
     cutTime = cutTime-1;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("+2")) {
     cutTime = cutTime+2;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min");
   }
   else if (command.equals("-2")) {
     cutTime = cutTime-2;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("+4")) {
     cutTime = cutTime+4;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("-4")) {
     cutTime = cutTime-4;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("+8")) {
     cutTime = cutTime+8;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("-8")) {
     cutTime = cutTime-8;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("+16")) {
     cutTime = cutTime+16;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("-16")) {
     cutTime = cutTime-16;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("+32")) {
     cutTime = cutTime+32;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   else if (command.equals("-32")) {
     cutTime = cutTime-32;
     float TRemain = cutTime-millis()/60000.0;
-    xBee.send("\nTime remaining is "+String(TRemain)+" min");
+    xBee.send("Time remaining is "+String(TRemain)+" min" + "\n");
   }
   //-----Add more commands as needed-----
    else { //if received command doesn't match any expected strings, inform ground of error
